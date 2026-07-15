@@ -26,9 +26,26 @@ print(fruits)
 
 # (sort) le chei ascending milaune kam garcha 
 # reverse le chei ulto bata print garne kam garcha
+
 numbers = [5,3,4,2,8,9,6]
 numbers.sort()
 numbers.sort(reverse = True)
 print(numbers)
 print(len(numbers))
 
+
+# coditional 
+
+temperature = 1
+
+if temperature > 40:
+    print("The temperature is too hot")
+    
+elif temperature >= 40:
+    print("The temperature is mild")
+    
+elif temperature >= 20:
+    print(" Dherai sittal cha")
+    
+else:
+    print("Too cold")
