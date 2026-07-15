@@ -6,3 +6,4 @@ class football:
                
 s1 = football("lusail", "11", "offside")
 print(s1.stadium)
+print(s1.players)
