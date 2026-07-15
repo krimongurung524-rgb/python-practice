@@ -1,6 +1,6 @@
 
 # import function 
-from function import add, subtract, product, divide
+from basic.function import add, subtract, product, divide
 
 # # i = 1
 # # while i <= 5:
