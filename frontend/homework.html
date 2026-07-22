@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Homework</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+
+  table {
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+
+  td {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid black;
+    cursor: pointer;
+  }
+
+  .blue {
+    background-color: blue;
+  }
+</style>
+</head>
+<body>
+
+<h2>C1, C2, C3, C4 Buttons</h2>
+
+<table>
+  <tr>
+    <th>C1</th>
+    <th>C2</th>
+    <th>C3</th>
+    <th>C4</th>
+  </tr>
+
+  <tr>
+    <td><button class="circle" onclick="changeColor(this)"></button></td>
+    <td><button class="circle" onclick="changeColor(this)"></button></td>
+    <td><button class="circle" onclick="changeColor(this)"></button></td>
+    <td><button class="circle" onclick="changeColor(this)"></button></td>
+  </tr>
+
+  <tr>
+    <td><button class="circle" onclick="changeColor(this)"></button></td>
+    <td><button class="circle" onclick="changeColor(this)"></button></td>
+    <td><button class="circle" onclick="changeColor(this)"></button></td>
+    <td><button class="circle" onclick="changeColor(this)"></button></td>
+  </tr>
+
+  <tr>
+    <td><button class="circle" onclick="changeColor(this)"></button></td>
+    <td><button class="circle" onclick="changeColor(this)"></button></td>
+    <td><button class="circle" onclick="changeColor(this)"></button></td>
+    <td><button class="circle" onclick="changeColor(this)"></button></td>
+  </tr>
+
+  <tr>
+    <td><button class="circle" onclick="changeColor(this)"></button></td>
+    <td><button class="circle" onclick="changeColor(this)"></button></td>
+    <td><button class="circle" onclick="changeColor(this)"></button></td>
+    <td><button class="circle" onclick="changeColor(this)"></button></td>
+  </tr>
+
+</table>
+
+<script>
+  function changeColor(btn) {
+    btn.classList.toggle("blue");
+  }
+</script>
+
+</body>
+</html>
