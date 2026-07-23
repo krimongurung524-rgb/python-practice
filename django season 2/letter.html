@@ -220,3 +220,98 @@
     .heart, .star{ animation: none !important; }
   }
 </style>
+</head>
+<body>
+ 
+<div class="stage">
+  <div class="stars" id="stars"></div>
+ 
+  <div class="envelope-wrap" id="envelopeWrap">
+    <div class="envelope">
+      <div class="pocket"></div>
+      <div class="flap"></div>
+      <div class="seal">
+        <svg viewBox="0 0 24 24" fill="#5c1f2f">
+          <path d="M12 21s-7.5-4.6-10-9.1C.4 8.4 2.1 5 5.6 5c2 0 3.4 1.1 4.4 2.6C11 6.1 12.4 5 14.4 5 17.9 5 19.6 8.4 22 11.9 19.5 16.4 12 21 12 21z"/>
+        </svg>
+      </div>
+    </div>
+    <div class="hint">Tap the envelope</div>
+  </div>
+ 
+  <div class="letter" id="letter">
+    <div class="eyebrow">A small note, just for you</div>
+    <h1>I Love You</h1>
+    <div class="divider"></div>
+    <p id="letterBody"></p>
+    <div class="signature">— sadai timro ❤</div>
+  </div>
+ 
+  <div class="hearts" id="hearts"></div>
+</div>
+ 
+<script>
+  // ===== EDIT YOUR MESSAGE HERE =====
+  const message = "Timi sanga bitaeko har pal mero lagi sabai bhanda maya lagdo kura ho. Timro hasi le mero din banauxa, timro sochai le mero man khusi paardaxa. Yo sansar ma jati pani kura khoji hidna, timi bhanda ramro kura mile jhikaunu asambhaw xa. I Love You, aba ra sadai ko lagi.";
+  // ===================================
+ 
+  document.getElementById('letterBody').textContent = message;
+ 
+  // Generate twinkling stars
+  const starsContainer = document.getElementById('stars');
+  for(let i=0; i<60; i++){
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random()*2.4 + 1;
+    s.style.width = size+'px';
+    s.style.height = size+'px';
+    s.style.left = Math.random()*100+'%';
+    s.style.top = Math.random()*100+'%';
+    s.style.animationDelay = (Math.random()*3)+'s';
+    starsContainer.appendChild(s);
+  }
+ 
+  const wrap = document.getElementById('envelopeWrap');
+  const letter = document.getElementById('letter');
+  const heartsContainer = document.getElementById('hearts');
+  let heartTimer = null;
+  let opened = false;
+ 
+  function spawnHeart(){
+    const h = document.createElement('div');
+    h.className = 'heart';
+    h.innerHTML = Math.random() > 0.5 ? '❤' : '💗';
+    const left = Math.random()*100;
+    const duration = 5 + Math.random()*5;
+    const drift = (Math.random()*160 - 80) + 'px';
+    const size = 0.9 + Math.random()*1.3;
+    h.style.left = left+'%';
+    h.style.fontSize = size+'rem';
+    h.style.setProperty('--drift', drift);
+    h.style.animationDuration = duration+'s';
+    heartsContainer.appendChild(h);
+    setTimeout(()=> h.remove(), duration*1000 + 200);
+  }
+ 
+  function openEnvelope(){
+    if(opened) return;
+    opened = true;
+    wrap.classList.add('opening');
+    setTimeout(()=>{
+      wrap.classList.add('opened');
+    }, 550);
+    setTimeout(()=>{
+      letter.classList.add('show');
+    }, 500);
+ 
+    // start gentle heart shower
+    heartTimer = setInterval(spawnHeart, 350);
+    for(let i=0;i<8;i++){ setTimeout(spawnHeart, i*90); }
+  }
+ 
+  wrap.addEventListener('click', openEnvelope);
+  wrap.addEventListener('keypress', (e)=>{ if(e.key==='Enter') openEnvelope(); });
+</script>
+ 
+</body>
+</html>
